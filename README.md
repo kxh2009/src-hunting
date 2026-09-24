@@ -8,15 +8,14 @@
 |------|------|------|
 | [nuclei](https://github.com/projectdiscovery/nuclei) | v3.11.1 | 基于模板的漏洞扫描引擎 |
 | [nuclei-templates](https://github.com/projectdiscovery/nuclei-templates) | 本地已缓存 | 漏洞检测模板库（~29k 条） rightfully |
-| [httpx](https://github.com/projectdiscovery/httpx) | 待安装 | 探针：URL/站点存活检测 |
-| [subfinder](https://github.com/projectdiscovery/subfinder) | 待安装 | 子域名枚举 |
+| [httpx](https://github.com/projectdiscovery/httpx) | v1.12.0 | 探针：URL/站点存活检测 |
+| [subfinder](https://github.com/projectdiscovery/subfinder) | v2.16.0 | 子域名枚举 |
 | [katana](https://github.com/projectdiscovery/katana) | 可选 | 爬虫：页面发现与指纹识别 |
 | [xray](https://github.com/raysec/xray) | 可选 | 漏洞扫描（黑盒） |
 
-> 安装 httpx / subfinder / katana 需要先安装 Go 语言运行时，并在网络环境下执行：
+> 本机安装目录为 `~/bin/`（nuclei、httpx、subfinder 已就绪）。
+> 若需用 Go 源码方式安装 katana 等：先安装 Go 运行时，再执行：
 > ```bash
-> go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
-> go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 > go install -v github.com/projectdiscovery/katana/cmd/katana@latest
 > ```
 
@@ -63,7 +62,7 @@ katana -u https://target.com -d 3 -json -o results/katana-output.json
 
 ## 授权扫描注意事项
 
-1. **必须有书面授权**：仅在获得目标 SRC 官方授权后方可扫描，�何未授权扫描均违反法律。
+1. **必须有书面授权**：仅在获得目标 SRC 官方授权后方可扫描，任何未授权扫描均违反法律。
 2. **遵守扫描规则**：遵循目标 SRC 的扫描频率、时段、接口限制等规定。
 3. **最小化影响**：避免对生产环境造成性能影响；优先使用 `-rate-limit` 和 `-burst` 参数控制并发。
 4. **数据安全**：扫描结果仅保存在本地，不上传任何发现数据。
@@ -79,5 +78,5 @@ katana -u https://target.com -d 3 -json -o results/katana-output.json
 
 - [x] Git 仓库初始化
 - [x] nuclei + nuclei-templates 本地可用
-- [ ] GitHub 远程推送（待网络/认证恢复）
-- [ ] httpx / subfinder / katana 安装（需 Go 运行时 + 网络）
+- [x] GitHub 远程推送（https://github.com/kxh2009/src-hunting）
+- [x] httpx / subfinder 二进制安装（~/bin/，无需 Go 运行时）
