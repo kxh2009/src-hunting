@@ -1,0 +1,26 @@
+# Go
+go.sum
+vendor/
+
+# Nuclei
+nuclei-templates/.git/
+*.nucleiignore
+
+# Results / outputs
+results/
+output/
+*.json
+*.yaml
+*.txt
+!README.md
+!.gitignore
+
+# Temp files
+.DS_Store
+*.tmp
+*.swp
+
+# IDE
+.idea/
+.vscode/
+*.iml
